@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Test</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        .ui {
+            position: absolute;
+        }
+    </style>
+
+    <script type="text/javascript" src="lib/three.js"></script>
+    <script type="text/javascript" src="lib/OrbitControls.js"></script>
+    <script type="text/javascript" src="lib/HDRCubeTextureLoader.js"></script>
+    <script type="text/javascript" src="lib/OBJLoader.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/dat.gui.min.js"></script>
+    <script src="lib/DDSLoader.js"></script>
+    <script src="lib/MTLLoader.js"></script>
+    <script src="lib/OBJLoader.js"></script>
+    <script src="lib/three.js"></script>
+    <script src="lib/Detector.js"></script>
+
+</head>
+<body>
+
+<div id="WebGL-output">
+</div>
+<div id="recP1" style="width:100%;
+     height:50px;text-align: left;
+     font-size: larger;
+     font-family: 'Comic Sans MS';
+    color:white;" class="ui">Record Player 1:
+</div>
+<div id="recP2" style="width:100%;
+     height:50px;text-align: right;
+     font-size: larger;
+     font-family: 'Comic Sans MS';
+    color:white;" class="ui">Record Player 2:
+</div>
+<script type="text/javascript">
+
+    var scene, camera, renderer;
+    var surfaceMesh;
+    var p1Score=0,  p2Score=0;
+    var recP1=document.getElementById('recP1');
+    var recP2=document.getElementById('recP2');
+    var stepplayer1, stepplayer2,PlayersBackWall1Mesh,PlayersBackWall2Mesh,Player1Mesh;
+    var controls;
+    var a = 1, b = 0, c = 1, d = 0 ;
+
+    var delta;
+    var clock = new THREE.Clock();
+    var Player2Mesh,ball;
+    var raycasterZ1,raycasterZ2;
+    var  collidableMeshList = [];
+    var  collidableMeshList2 = [];
+    var listener,sound,audioloader;
+
+
+    window.addEventListener('keyup', onDocumentKeyUp, false);
+    window.addEventListener('resize', onWindowResize, false);
+
+
+    init();
+    animate();
+
+    function init() {
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 0;
+        camera.position.y = 250;
+        camera.lookAt(scene.position);
+
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.shadowMap.enabled = true;
+        renderer.setClearColor(new THREE.Color(0x000000));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        //ایجاد نور محیط
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight);
+
+        // ایجاد صحنه پس زمینه
+        var surfaceGeometry = new THREE.PlaneGeometry(100, 180);
+        var surfaceMaterial = new THREE.MeshPhongMaterial({color: 0xc6b10a, side: THREE.DoubleSide});
+        surfaceMesh = new THREE.Mesh(surfaceGeometry, surfaceMaterial);
+        surfaceMesh.rotateX(Math.PI / 2);
+        surfaceMesh.position.y = 0;
+        surfaceMesh.position.x = 0;
+        surfaceMesh.position.z = 0;
+        scene.add(surfaceMesh);
+
+        // ایجاد دیوار سمت راست
+        var RightWallGeometry = new THREE.CubeGeometry(3, 180, 5);
+        var RightWallMaterial = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        var RightWallMesh = new THREE.Mesh(RightWallGeometry, RightWallMaterial);
+        RightWallMesh.rotateX(Math.PI / 2);
+        RightWallMesh.position.y = 0;
+        RightWallMesh.position.x = 50;
+        RightWallMesh.position.z = 0;
+        scene.add(RightWallMesh);
+
+        // ایجاد دیوار سمت چپ
+        var LeftWallGeometry = new THREE.CubeGeometry(3, 180, 5);
+        var LeftWallMaterial = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        var LeftWallMesh = new THREE.Mesh(LeftWallGeometry, LeftWallMaterial);
+        LeftWallMesh.rotateX(Math.PI / 2);
+        LeftWallMesh.position.y = 0;
+        LeftWallMesh.position.x = -50;
+        LeftWallMesh.position.z = 0;
+        scene.add(LeftWallMesh);
+
+        // ایجاد دیوار پشت بازیکن 1
+        var PlayersBackWall1Geometry = new THREE.CubeGeometry(100, 3, 20);
+        var PlayersBackWall1Material = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        PlayersBackWall1Mesh = new THREE.Mesh(PlayersBackWall1Geometry, PlayersBackWall1Material);
+        PlayersBackWall1Mesh.rotateX(Math.PI / 2);
+        PlayersBackWall1Mesh.position.y = 0;
+        PlayersBackWall1Mesh.position.x = 0;
+        PlayersBackWall1Mesh.position.z = -87;
+//**
+        PlayersBackWall1Mesh.name="p1Wall";
+        collidableMeshList.push(PlayersBackWall1Mesh);
+        scene.add(PlayersBackWall1Mesh);
+
+        // ایجاد دیوار پشت بازیکن 2
+        var PlayersBackWall2Geometry = new THREE.CubeGeometry(100, 3, 20);
+        var PlayersBackWall2Material = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        PlayersBackWall2Mesh = new THREE.Mesh(PlayersBackWall2Geometry, PlayersBackWall2Material);
+        PlayersBackWall2Mesh.rotateX(Math.PI / 2);
+        PlayersBackWall2Mesh.position.y = 0;
+        PlayersBackWall2Mesh.position.x = 0;
+        PlayersBackWall2Mesh.position.z = 87;
+//**
+        PlayersBackWall2Mesh.name="p2Wall";
+        collidableMeshList.push(PlayersBackWall2Mesh);
+        scene.add(PlayersBackWall2Mesh);
+
+        // ایجاد بازیکن 1
+        var Player1Geometry = new THREE.CubeGeometry(25, 3, 5);
+        var Player1Material = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        Player1Mesh = new THREE.Mesh(Player1Geometry, Player1Material);
+        Player1Mesh.rotateX(Math.PI / 2);
+        Player1Mesh.position.y = 2;
+        Player1Mesh.position.x = 0;
+        Player1Mesh.position.z = -82;
+//**
+        Player1Mesh.name="P1";
+        collidableMeshList2.push(Player1Mesh);
+        scene.add(Player1Mesh);
+
+        // ایجاد بازیکن 2
+        var Player2Geometry = new THREE.CubeGeometry(25, 3, 5);
+        var Player2Material = new THREE.MeshPhongMaterial({color: 0x0aaaa9, side: THREE.DoubleSide});
+        Player2Mesh = new THREE.Mesh(Player2Geometry, Player2Material);
+        Player2Mesh.rotateX(Math.PI / 2);
+        Player2Mesh.position.y = 2;
+        Player2Mesh.position.x = 0;
+        Player2Mesh.position.z = 82;
+//**
+        Player2Mesh.name="P2";
+        collidableMeshList2.push(Player2Mesh);
+        scene.add(Player2Mesh);
+
+
+        // ایجاد جسم 3 بعدی ( توپ ) و بافت دادن به آن
+        var textureball = new THREE.TextureLoader().load('texture/perlin-512.png');
+        var ballGeo = new THREE.SphereGeometry(2.5, 16, 16);
+        var ballMat = new THREE.MeshPhongMaterial({shading: THREE.FlatShading, shininess: 65 , map:textureball});
+        ball = new THREE.Mesh(ballGeo, ballMat);
+        ball.position.x = 0;
+        ball.position.y = 5;
+        ball.position.z = 78;
+        scene.add(ball);
+//**
+        //const rayGap = 0.2;
+        raycasterZ1 = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, 0, 1), 0, 1.5);
+        raycasterZ2 = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, 0, -1), 0, 0.8);
+
+        // اضافه کردن کنترل برای جا به جایی دوربین
+        controls = new THREE.OrbitControls(camera);
+
+        window.addEventListener('resize', onWindowResize, false);
+
+    }
+
+    function animate() {
+        collision();
+        playerCollision();
+//**
+        recP1.textContent="Score Player 1: "+p1Score/2;
+        recP2.textContent="Score Player 2: "+p2Score;
+
+        renderer.render(scene, camera);
+
+        // حرکت بازیکن 1
+        if (stepplayer1 == 3) {
+            if (Player1Mesh.position.x < 36)
+                Player1Mesh.position.x += 4;
+            stepplayer1 = 0;
+        } else if (stepplayer1 == 2) {
+            if (Player1Mesh.position.x > -36)
+                Player1Mesh.position.x -= 4;
+            stepplayer1 = 0;
+        }
+
+        // حرکت بازیکن 2
+        if (stepplayer2 == 3) {
+            if (Player2Mesh.position.x < 36)
+                Player2Mesh.position.x += 4;
+            stepplayer2 = 0;
+        } else if (stepplayer2 == 2) {
+            if (Player2Mesh.position.x > -36)
+                Player2Mesh.position.x -= 4;
+            stepplayer2 = 0;
+        }
+
+        // آپدیت کردن کنترل دوربین
+        delta = clock.getDelta();
+        controls.update(delta);
+
+        requestAnimationFrame(animate);
+        render();
+        update();
+    }
+
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    function render() {
+        renderer.render(scene, camera);
+
+    }
+
+    function onDocumentKeyUp(event) {
+
+        if (event.keyCode == 74) {
+            stepplayer1 = 2;
+        } else if (event.keyCode == 76) {
+            stepplayer1 = 3;
+        }
+
+        if (event.keyCode == 83) {
+            stepplayer2 = 2;
+        } else if (event.keyCode == 70) {
+            stepplayer2 = 3;
+        }
+
+    }
+
+    function update() {
+        ballMovment();
+    }
+
+    function ballMovment() {
+        // قرار دادن حرکت برای توپ
+        if (ball.position.x <= 43 && a == 1) {
+            ball.position.x += 1;
+            if (ball.position.x == 43) {
+                a = 0;
+                b = 1;
+            }
+        }
+        if (ball.position.x >= -43 && b == 1) {
+            ball.position.x -= 1;
+            if (ball.position.x == -43) {
+                a = 1;
+                b = 0;
+            }
+        }
+        if (ball.position.z <= 85 && d == 1) {
+            ball.position.z += 1;
+            if (ball.position.z == 85) {
+                c = 1;
+                d = 0;
+            }
+        }
+        if (ball.position.z >= -85 && c == 1) {
+            ball.position.z -= 1;
+            if (ball.position.z == -85) {
+                c = 0;
+                d = 1;
+            }
+        }
+    }
+
+//**
+    function collision() {
+
+        raycasterZ1.ray.origin.copy(ball.position);
+        raycasterZ2.ray.origin.copy(ball.position);
+
+        var wallP1 = raycasterZ1.intersectObjects(collidableMeshList);
+        var wallP2 = raycasterZ2.intersectObjects(collidableMeshList);
+
+        //شمارش امتیاز بازیکن اول
+        if(wallP1.length>0){
+
+            listener = new THREE.AudioListener();
+            camera.add(listener);
+            sound = new THREE.Audio(listener);
+            audioloader = new THREE.AudioLoader();
+            audioloader.load('sound/3d.mp3', function (buffer) {
+                sound.setBuffer(buffer);
+                sound.setVolume(0.5);
+                sound.play();
+            });
+
+            p1Score++;
+        }
+
+        //شمارش امتیاز بازیکن دوم
+        if(wallP2.length>0) {
+
+            listener = new THREE.AudioListener();
+            camera.add(listener);
+            sound = new THREE.Audio(listener);
+            audioloader = new THREE.AudioLoader();
+            audioloader.load('sound/3d.mp3', function (buffer) {
+                sound.setBuffer(buffer);
+                sound.setVolume(0.5);
+                sound.play();
+            });
+
+            p2Score++;
+        }
+    }
+
+//**
+    function playerCollision() {
+        var originPoint = ball.position.clone();
+        for (var vertexIndex = 0; vertexIndex < ball.geometry.vertices.length; vertexIndex++) {
+            var localVertex = ball.geometry.vertices[vertexIndex].clone();
+            var globalVertex = localVertex.applyMatrix4(ball.matrix);
+            var directionVector = globalVertex.sub(ball.position);
+
+            var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize(),0.1,8);
+            var collisionResults = ray.intersectObjects( collidableMeshList2);
+            if (collisionResults.length > 0 ){
+                if(collisionResults[0].object.name=="P2" && ball.position.z>=74){
+                    d=0;
+                    b=0;
+                    a=1;
+                    c=1;
+                    console.log(ball.position.z);
+                }else if(collisionResults[0].object.name=="P1"&& ball.position.z<= -74){
+                    a=0;
+                    c=0;
+                    d=1;
+                    b=1;
+                    console.log(ball.position.z);
+                }
+            }
+        }
+    }
+</script>
+<div class="transform">
+
+</div>
+
+</body>
+</html>

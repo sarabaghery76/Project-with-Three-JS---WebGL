@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+var planeMaterial = new THREE.MeshPhongMaterial({
+color: 0xffffff
+});
+planeMaterial.map = THREE.ImageUtils.loadTexture(
+"../assets/textures/wood_1-1024x1024.png")
+planeMaterial.map.wrapS = THREE.RepeatWrapping;
+planeMaterial.map.wrapT = THREE.RepeatWrapping;
+planeMaterial.map.repeat.set...
+</body>
+</html>

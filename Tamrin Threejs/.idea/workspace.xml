@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eb403a44-c0f8-499f-bb21-7dc9e32ccfba" name="Default" comment="" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="threejs" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>controls</find>
+      <find>onDocumentMouseMove</find>
+      <find>step</find>
+      <find>audio</find>
+      <find>sphere</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tween.html" />
+        <option value="$PROJECT_DIR$/light.html" />
+        <option value="$PROJECT_DIR$/light2.html" />
+        <option value="E:/three.js-master/three.js-master/Shadow.html" />
+        <option value="$PROJECT_DIR$/Skeleton.html" />
+        <option value="$PROJECT_DIR$/Transform &amp; Animation.html" />
+        <option value="$PROJECT_DIR$/3DSound.html" />
+        <option value="$PROJECT_DIR$/Test.html" />
+        <option value="$PROJECT_DIR$/TEST1.html" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="RectArea&#9;null&#9;null&#10;posi&#9;null&#9;null&#10;position&#9;null&#9;null&#10;intensity&#9;null&#9;null&#10;Am&#9;null&#9;null&#10;am&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="F:/drive e/elm &amp; farhang/term 2/web design/exam/mino/bt" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\threejs\texture" />
+      <recent name="E:\threejs\model" />
+      <recent name="C:\Users\Site104\Desktop\a\sara4\threejs\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb403a44-c0f8-499f-bb21-7dc9e32ccfba" name="Default" comment="" />
+      <created>1554533541331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554533541331</updated>
+      <workItem from="1554533548197" duration="2879000" />
+      <workItem from="1555135051433" duration="2426000" />
+      <workItem from="1555137749703" duration="1255000" />
+      <workItem from="1555139102957" duration="469000" />
+      <workItem from="1557469534961" duration="27807000" />
+      <workItem from="1557499851307" duration="277000" />
+      <workItem from="1557500152157" duration="224000" />
+      <workItem from="1557501158823" duration="712000" />
+      <workItem from="1557508927983" duration="861000" />
+      <workItem from="1557552825789" duration="3564000" />
+      <workItem from="1557557108357" duration="3264000" />
+      <workItem from="1558157201519" duration="5681000" />
+      <workItem from="1558180836486" duration="2939000" />
+      <workItem from="1558211816402" duration="122000" />
+      <workItem from="1558213394494" duration="4356000" />
+      <workItem from="1558266103837" duration="98000" />
+      <workItem from="1558761226479" duration="3529000" />
+      <workItem from="1558780431204" duration="591000" />
+      <workItem from="1558967671322" duration="205000" />
+      <workItem from="1558969680674" duration="36000" />
+      <workItem from="1558970796788" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="61316000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
+      <window_info id="Structure" order="1" weight="0.24962178" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/cannon.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/three.js-master/three.js-master/lib/Tween.js" />
+    <entry file="file://$PROJECT_DIR$/lib/GPUParticleSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="317" column="8" selection-start-line="317" selection-start-column="8" selection-end-line="317" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="42854" column="4" selection-start-line="42854" selection-start-column="4" selection-end-line="42854" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/three.js-master/three.js-master/Shadow.html" />
+    <entry file="file://E:/three.js-master/three.js-master/Material.html" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/zip/zip.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Camera.html" />
+    <entry file="file://$PROJECT_DIR$/Skeleton.html" />
+    <entry file="file://$PROJECT_DIR$/Collision.html" />
+    <entry file="file://$PROJECT_DIR$/Equalizer.html" />
+    <entry file="file://$PROJECT_DIR$/InterAction3D.html" />
+    <entry file="file://$PROJECT_DIR$/Light.html" />
+    <entry file="file://$PROJECT_DIR$/Particle.html" />
+    <entry file="file://$PROJECT_DIR$/lib/Tween.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5151" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grouping Objects.html" />
+    <entry file="file://$PROJECT_DIR$/Transform &amp; Animation.html" />
+    <entry file="file://$PROJECT_DIR$/Material.html" />
+    <entry file="file://$PROJECT_DIR$/ParticleSystem.html" />
+    <entry file="file://$PROJECT_DIR$/Spline.html" />
+    <entry file="file://$PROJECT_DIR$/texture/cylinder.jpg" />
+    <entry file="file://$PROJECT_DIR$/Hierarchy11.html" />
+    <entry file="file://$PROJECT_DIR$/Hierarchy.html" />
+    <entry file="file://$PROJECT_DIR$/model/camero-2010-low-poly.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3DSound.html" />
+    <entry file="file://$PROJECT_DIR$/Texture.html" />
+    <entry file="file://$PROJECT_DIR$/Test.html" />
+    <entry file="file://$PROJECT_DIR$/texture/perlin-512.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snow.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snowflake1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snowflake5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snowflake4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snowflake3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/snowflake2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/FirstPersonControls.js" />
+    <entry file="file://$PROJECT_DIR$/lib/TrackballControls.js" />
+    <entry file="file://$PROJECT_DIR$/TEST1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="213" column="38" selection-start-line="213" selection-start-column="38" selection-end-line="213" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
